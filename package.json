@@ -1,0 +1,21 @@
+{
+  "name": "udemy-js-tdd",
+  "version": "1.0.0",
+  "description": "Library made during JS with TDD Udemy course",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com-personal_github:amandasantanati/udemy-js-tdd.git"
+  },
+  "keywords": [
+    "js",
+    "tdd",
+    "library",
+    "udemy"
+  ],
+  "author": "Amanda Santana <amandasantanati@gmail.com> (http://amandasantanati.com.br/)",
+  "license": "MIT"
+}
