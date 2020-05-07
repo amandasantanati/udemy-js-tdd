@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Generators</title>
+</head>
+<body>
+</body>
+
+<script>
+  function* generatorNames() {
+    yield 'Amanda';
+    yield 'Alexa';
+    yield 'Aiury';
+  }
+
+  const names = generatorNames();
+
+  function getData(url) {
+    fetch(url)
+      .then(data => data.json())
+      .then(data => requests.next(data))
+  }
+
+  function* generatorFlowControl() {
+    console.log('Buscando users');
+    const users = yield getData('https://reqres.in/api/users');
+    console.log(users);
+
+    console.log('Buscando dados no github de amanda');
+    const amanda = yield getData('https://api.github.com/users/amandasantanati')
+    console.log(amanda);
+
+    console.log('Buscando dados no github de willian');
+    const willian = yield getData('https://api.github.com/users/willianjusten')
+    console.log(willian);
+  }
+
+  const requests = generatorFlowControl();
+  requests.next();
+
+  const template = `
+    <ul>
+      <li>${names.next().value}</li>
+      <li>${names.next().value}</li>
+      <li>${names.next().value}</li>
+    </ul>
+  `;
+
+  document.body.innerHTML = template;
+</script>
+</html>
