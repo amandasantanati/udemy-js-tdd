@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Destructuring</title>
+</head>
+
+<body>
+</body>
+
+<script>
+  // destructuring from object
+  const data = {
+    name: 'Amanda',
+    surname: 'Santana',
+    social: {
+      twitter: '@amandasantanati',
+      facebook: '/amandasantanati'
+    }
+  }
+
+  const { name, surname } = data;
+  const { twitter = '@amanda_santana', facebook: fb, github: gh = 'amandasantanati' } = data.social;
+
+  //destructuring from array
+  const games = ['The Witcher 3', 2, 'Red Dead Redemption 2']
+  const [ favoriteGame, yearsPlayed ] = games;
+
+  //destructuring swap variables
+  let age = 0;
+  let anyNumber = 36;
+
+  [age, anyNumber] = [anyNumber, age];
+
+  const template = `
+    My name is ${name} ${surname}, I am ${age} years old and my social medias are:
+    <ul>
+      <li>twitter: ${twitter}</li>
+      <li>facebook: ${fb}</li>
+      <li>github: ${gh}</li>
+    </ul>
+    I also like to play games and my favorite is ${favoriteGame} which I've been playing for more than ${yearsPlayed} years!
+  `;
+
+  document.body.innerHTML = template;
+</script>
+
+</html>
