@@ -5,46 +5,45 @@
   <title>Spread Operator</title>
 </head>
 <body>
+  <script>
+    const games = ['The Witcher 3', 'Red Dead Redemption 2', 'Fifa 2019'];
+
+    console.log([...'amanda']);
+    console.log(...games);
+
+    const front = ['react', 'angular'];
+    const back = ['python', 'java'];
+
+    let oldWay = [];
+    oldWay = oldWay.concat(front);
+    oldWay.push('ruby');
+    oldWay = oldWay.concat(back);
+    console.log(oldWay);
+
+    const fullstack = [...front, 'ruby', ...back];
+    console.log(fullstack);
+
+    function makeSandwich(bread, cheese, sauce) {
+      return `Your sandwiche with ${bread} bread, ${cheese} cheese and ${sauce} sauce is done!`;
+    }
+
+    const ingredients = ['white', 'cheddar', 'barbecue'];
+    const mySandwich = makeSandwich(...ingredients);
+
+    //rest params
+    function multiply(mult, ...args) {
+      return args.map(arg => arg * mult);
+    }
+
+
+    const template = `
+      <p>Old way concating arrays: ${oldWay}</p>
+      <p>New way: ${fullstack}</p>
+      <p>${mySandwich}</p>
+      <p>Multiply: ${multiply(5, 1, 2, 3 ,4 ,5)}</p>
+    `;
+
+    document.body.innerHTML = template;
+  </script>
 </body>
-
-<script>
-  const games = ['The Witcher 3', 'Red Dead Redemption 2', 'Fifa 2019'];
-
-  console.log([...'amanda']);
-  console.log(...games);
-
-  const front = ['react', 'angular'];
-  const back = ['python', 'java'];
-
-  let oldWay = [];
-  oldWay = oldWay.concat(front);
-  oldWay.push('ruby');
-  oldWay = oldWay.concat(back);
-  console.log(oldWay);
-
-  const fullstack = [...front, 'ruby', ...back];
-  console.log(fullstack);
-
-  function makeSandwich(bread, cheese, sauce) {
-    return `Your sandwiche with ${bread} bread, ${cheese} cheese and ${sauce} sauce is done!`;
-  }
-
-  const ingredients = ['white', 'cheddar', 'barbecue'];
-  const mySandwich = makeSandwich(...ingredients);
-
-  //rest params
-  function multiply(mult, ...args) {
-    return args.map(arg => arg * mult);
-  }
-
-
-  const template = `
-    <p>Old way concating arrays: ${oldWay}</p>
-    <p>New way: ${fullstack}</p>
-    <p>${mySandwich}</p>
-    <p>Multiply: ${multiply(5, 1, 2, 3 ,4 ,5)}</p>
-  `;
-
-  document.body.innerHTML = template;
-</script>
 </html>

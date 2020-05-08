@@ -5,116 +5,116 @@
   <title>Classes</title>
 </head>
 <body>
+
+  <script>
+    //ES5 class
+    function Person(name, age) {
+      this.name = name;
+      this.age = age;
+    }
+
+    Person.prototype.hello = function() {
+      return `My name is ${this.name} and I'm ${this.age} years old.`;
+    }
+
+    //ES6 class
+    class Animal {
+      constructor(kind, sound) {
+        this.kind = kind;
+        this.sound = sound;
+      }
+
+      hello() {
+        return `${this.sound.toUpperCase()}! I'm a ${this.kind}.`
+      }
+
+      get name() {
+        return `${this.sound}! My name is ${this.nick}`;
+      }
+
+      set nickname(nick) {
+        this.nick = nick;
+      }
+
+      static info() {
+        return this;
+      }
+    }
+
+    class Dog extends Animal {
+      constructor(kind, sound, nick, breed = 'pooch') {
+        super(kind, sound);
+        this.nick = nick;
+        this.breed = breed;
+      }
+
+      hello() {
+        return `${this.sound.toUpperCase()}! I'm a ${this.breed} ${this.kind} and my name is ${this.nick}`;
+      }
+
+      //substitute set nickname from Animal for some reason
+      get nickname() {
+        return this.nick;
+      }
+
+      //substitute get name from Animal for some reason
+      set name(nick) {
+        return this.nick = nick;
+      }
+    }
+
+    const amanda = new Person('Amanda', 36);
+
+    const cat = new Animal('cat', 'meow');
+    cat.nickname = 'Viva';
+    cat.name = 'It does not rewrite!';
+
+    const dog = new Dog('dog', 'au au', 'Lorita');
+    dog.nickname = 'It does not rewrite!';
+
+    const raja = new Dog('dog', 'au au', 'None', 'French Bulldog');
+    raja.name = 'Raja';
+
+    const template = `
+      <p>ES5 class: ${amanda.hello()}</p>
+      <p>
+        ES6 class Animal:
+        <ul>
+          <li>${cat.hello()}</li>
+          <li>${cat.kind}</li>
+          <li>${cat.name}</li>
+          <li>${cat.nick}</li>
+          <li>${cat.nickname}</li>
+          <li>${Animal.info()}</li>
+        </ul>
+      </p>
+      <p>
+        ES6 extended class Dog:
+        <ul>
+          <li>${dog.hello()}</li>
+          <li>${dog.kind}</li>
+          <li>${dog.name}</li>
+          <li>${dog.nick}</li>
+          <li>${dog.nickname}</li>
+          <li>${Dog.info()}</li>
+          <li>${dog.breed}</li>
+        </ul>
+      </p>
+      <p>
+        ES6 extended class Dog:
+        <ul>
+          <li>${raja.hello()}</li>
+          <li>${raja.kind}</li>
+          <li>${raja.name}</li>
+          <li>${raja.nick}</li>
+          <li>${raja.nickname}</li>
+          <li>${Dog.info()}</li>
+          <li>${raja.breed}</li>
+        </ul>
+      </p>
+    `;
+
+    document.body.innerHTML = template;
+  </script>
 </body>
-
-<script>
-  //ES5 class
-  function Person(name, age) {
-    this.name = name;
-    this.age = age;
-  }
-
-  Person.prototype.hello = function() {
-    return `My name is ${this.name} and I'm ${this.age} years old.`;
-  }
-
-  //ES6 class
-  class Animal {
-    constructor(kind, sound) {
-      this.kind = kind;
-      this.sound = sound;
-    }
-
-    hello() {
-      return `${this.sound.toUpperCase()}! I'm a ${this.kind}.`
-    }
-
-    get name() {
-      return `${this.sound}! My name is ${this.nick}`;
-    }
-
-    set nickname(nick) {
-      this.nick = nick;
-    }
-
-    static info() {
-      return this;
-    }
-  }
-
-  class Dog extends Animal {
-    constructor(kind, sound, nick, breed = 'pooch') {
-      super(kind, sound);
-      this.nick = nick;
-      this.breed = breed;
-    }
-
-    hello() {
-      return `${this.sound.toUpperCase()}! I'm a ${this.breed} ${this.kind} and my name is ${this.nick}`;
-    }
-
-    //substitute set nickname from Animal for some reason
-    get nickname() {
-      return this.nick;
-    }
-
-    //substitute get name from Animal for some reason
-    set name(nick) {
-      return this.nick = nick;
-    }
-  }
-
-  const amanda = new Person('Amanda', 36);
-
-  const cat = new Animal('cat', 'meow');
-  cat.nickname = 'Viva';
-  cat.name = 'It does not rewrite!';
-
-  const dog = new Dog('dog', 'au au', 'Lorita');
-  dog.nickname = 'It does not rewrite!';
-
-  const raja = new Dog('dog', 'au au', 'None', 'French Bulldog');
-  raja.name = 'Raja';
-
-  const template = `
-    <p>ES5 class: ${amanda.hello()}</p>
-    <p>
-      ES6 class Animal:
-      <ul>
-        <li>${cat.hello()}</li>
-        <li>${cat.kind}</li>
-        <li>${cat.name}</li>
-        <li>${cat.nick}</li>
-        <li>${cat.nickname}</li>
-        <li>${Animal.info()}</li>
-      </ul>
-    </p>
-    <p>
-      ES6 extended class Dog:
-      <ul>
-        <li>${dog.hello()}</li>
-        <li>${dog.kind}</li>
-        <li>${dog.name}</li>
-        <li>${dog.nick}</li>
-        <li>${dog.nickname}</li>
-        <li>${Dog.info()}</li>
-        <li>${dog.breed}</li>
-      </ul>
-    </p>
-    <p>
-      ES6 extended class Dog:
-      <ul>
-        <li>${raja.hello()}</li>
-        <li>${raja.kind}</li>
-        <li>${raja.name}</li>
-        <li>${raja.nick}</li>
-        <li>${raja.nickname}</li>
-        <li>${Dog.info()}</li>
-        <li>${raja.breed}</li>
-      </ul>
-    </p>
-  `;
-
-  document.body.innerHTML = template;
-</script>
 </html>
