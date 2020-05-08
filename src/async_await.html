@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Async and await</title>
+</head>
+<body>
+  <script>
+    async function getUserNames() {
+      try {
+        const data = await fetch('https://reqres.in/api/users');
+        const response = await data.json();
+        const users = response.data;
+
+        console.log(users);
+        console.log(users.map(user => user.first_name));
+      } catch {
+        console.error('Something wrong is not right');
+      }
+    }
+
+    getUserNames();
+  </script>
+</body>
+</html>
