@@ -1,5 +1,5 @@
 {
-  "name": "modules",
+  "name": "modulos",
   "version": "1.0.0",
   "description": "Using modules and webpack",
   "main": "index.js",
