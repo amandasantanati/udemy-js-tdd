@@ -6,13 +6,18 @@
   "scripts": {
     "lint": "./node_modules/.bin/eslint src/*.js",
     "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require @babel/register",
-    "test:tdd": "npm run test -- --watch"
+    "test:tdd": "npm run test -- --watch",
+    "test:coverage": "nyc npm run test"
   },
   "husky": {
     "hooks": {
       "pre-push": "npm run lint"
     }
   },
+  "nyc": {
+    "reporter" : ["text", "html"]
+  },
+  "eslintIgnore": ["*.spec.js"],
   "keywords": [],
   "author": "Amanda Santana <amandasantanati@gmail.com> (http://amandasantanati.com.br/)",
   "license": "MIT",
@@ -25,6 +30,7 @@
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
     "husky": "^4.2.5",
-    "mocha": "^7.1.2"
+    "mocha": "^7.1.2",
+    "nyc": "^15.0.1"
   }
 }
