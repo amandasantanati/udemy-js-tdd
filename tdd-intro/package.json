@@ -1,0 +1,17 @@
+{
+  "name": "tdd-intro",
+  "version": "1.0.0",
+  "description": "Project to install mocha and chai dependencies to use in tests",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha tests/**/*.spec.js",
+    "test:tdd": "./node_modules/.bin/mocha tests/**/*.spec.js --watch"
+  },
+  "keywords": [],
+  "author": "Amanda Santana <amandasantanati@gmail.com> (http://amandasantanati.com.br/)",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^7.1.2"
+  }
+}
